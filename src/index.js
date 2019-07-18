@@ -9,16 +9,12 @@ import * as serviceWorker from './serviceWorker';
 
 
 const bookList = (state = [], action) => {
-  if (action.type === `ADD_BOOK`) {
-    // MUST return a new array, don't push...
-    return [ ...state, action.payload ]
-  }
+  // TODO - set book list with data from server
   return state;
 }
 
 const reduxStore = createStore(
   combineReducers({
-    // all reducers will go here...
     bookList
   }),
   applyMiddleware(logger)

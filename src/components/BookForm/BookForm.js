@@ -22,28 +22,33 @@ class BookForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Adding book`, this.state.newBook);
-    this.props.dispatch({ type: 'ADD_BOOK', payload: this.state.newBook });
+    // TODO - axios request to server to add book
+
+    // Navigate back to book list
+    this.props.history.push('/');
   }
 
   render() {
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <section>
+        <h2>Add Book</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input required placeholder="Title" 
+              value={this.state.newBook.title}
+              onChange={(event) => this.handleChangeFor('title', event)}
+          />
 
-        <input required placeholder="Title" 
-            value={this.state.newBook.title}
-            onChange={(event) => this.handleChangeFor('title', event)}
-        />
-
-        <input required placeholder="Author" 
-            value={this.state.newBook.author}
-            onChange={(event) => this.handleChangeFor('author', event)}
-        />
-        <br />
-        <button type="submit">
-          Add Book
-        </button>
-      </form>
+          <input required placeholder="Author" 
+              value={this.state.newBook.author}
+              onChange={(event) => this.handleChangeFor('author', event)}
+          />
+          <br />
+          <button type="submit">
+            Add Book
+          </button>
+        </form>
+      </section>
     );
   }
 }
