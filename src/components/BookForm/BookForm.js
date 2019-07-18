@@ -26,17 +26,23 @@ class BookForm extends Component {
   }
 
   render() {
+
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Title:</label>
-        <input type="text" value={this.state.newBook.title}
-            onChange={(event) => this.handleChangeFor('title', event)} />
-        
-        <label>Author:</label>
-        <input type="text" value={this.state.newBook.author}
-            onChange={(event) => this.handleChangeFor('author', event)} />
+
+        <input required placeholder="Title" 
+            value={this.state.newBook.title}
+            onChange={(event) => this.handleChangeFor('title', event)}
+        />
+
+        <input required placeholder="Author" 
+            value={this.state.newBook.author}
+            onChange={(event) => this.handleChangeFor('author', event)}
+        />
         <br />
-        <button>Add Book</button>
+        <button type="submit">
+          Add Book
+        </button>
       </form>
     );
   }
