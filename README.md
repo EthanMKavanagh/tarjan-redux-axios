@@ -2,6 +2,6 @@
 
 Pull down the code, npm install and setup a database called `fs-redux-books` w/ the provided `database.sql` file. 
 
-The React components and the Redux setup are already added.
-
-> There are TODO comments in the code...
+> The starter code has several components & redux setup with TODO's. 
+ - There is a `bookList` reducer setup in `index.js` and the `BookList` is setup to map over that as an array.
+ - The `BookForm` is already setup w/ `handleChangeFor` and `handlSubmit`, but there is a TODO in the `handleSubmit` for the axios request.

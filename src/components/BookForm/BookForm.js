@@ -24,8 +24,6 @@ class BookForm extends Component {
     console.log(`Adding book`, this.state.newBook);
     // TODO - axios request to server to add book
 
-    // Navigate back to book list
-    this.props.history.push('/');
   }
 
   render() {
