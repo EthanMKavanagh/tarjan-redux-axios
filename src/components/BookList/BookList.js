@@ -1,6 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+
+//This is a function component. TIt cant have local state, nor methods!
+//You do have access to props sent in, though.
+//no `this`
 function BookList(props) {
   return (
     <section>
