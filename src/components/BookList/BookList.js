@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 //This is a function component. TIt cant have local state, nor methods!
 //You do have access to props sent in, though.
+//the return is the same as render in a class component
 //no `this`
 function BookList(props) {
   return (
