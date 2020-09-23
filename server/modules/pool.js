@@ -1,7 +1,7 @@
 const pg = require('pg');
 
 const config = {
-  database: 'redux-axios', 
+  database: 'react-axios', 
   host: 'localhost', 
   port: 5432, 
   max: 10, 

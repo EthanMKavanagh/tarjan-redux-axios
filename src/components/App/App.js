@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux';
 
 import BookList from '../BookList/BookList';
 import BookForm from '../BookForm/BookForm';
@@ -9,6 +11,21 @@ import './App.css';
 class App extends Component {
 
   // TODO - GET Book List from server
+  componentDidMount = () => {
+    axios({
+      method: 'GET',
+      url: '/books'
+    }).then(response => {
+      console.log('response is:', response)
+
+      this.props.dispatch({
+        type: 'SET_BOOKS',
+        payload: response.data
+      });
+    }).catch(err => {
+      console.log('GET error:', err);
+    });
+  }
 
   render() {
     return (
@@ -23,4 +40,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
