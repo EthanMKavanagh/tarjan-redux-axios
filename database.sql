@@ -1,4 +1,4 @@
--- CREATE DATABASE "fs-redux-books"
+-- CREATE DATABASE "redux-axios"
 CREATE TABLE books(
   "id" SERIAL PRIMARY KEY,
   "title" VARCHAR (250) NOT NULL,

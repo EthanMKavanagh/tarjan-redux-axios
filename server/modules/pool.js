@@ -1,7 +1,7 @@
 const pg = require('pg');
 
 const config = {
-  database: 'fs-redux-books', 
+  database: 'redux-axios', 
   host: 'localhost', 
   port: 5432, 
   max: 10, 
