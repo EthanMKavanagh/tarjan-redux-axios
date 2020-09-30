@@ -28,6 +28,13 @@ class BookForm extends Component {
       type: 'CREATE_BOOK',
       payload: this.state.newBook
     });
+
+    this.setState({
+      newBook: {
+        title: '',
+        author: ''
+      }
+    });
   }
 
   render() {
