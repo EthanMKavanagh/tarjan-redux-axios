@@ -24,17 +24,9 @@ class BookForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Adding book`, this.state.newBook);
-
-    axios({
-      method: 'POST',
-      url: '/books',
-      data: this.state.newBook
-    }).then(response => {
-      console.log('POST /books', response);
-
-      this.props.getBooks();
-    }).catch(err => {
-      console.error('POST failed', err);
+    this.props.dispatch({
+      type: 'CREATE_BOOK',
+      payload: this.state.newBook
     });
   }
 

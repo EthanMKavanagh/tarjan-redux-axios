@@ -34,8 +34,21 @@ function* fetchBooksSaga(action) {
   });
 }
 
+function* createBookSaga(action) {
+  yield axios({
+    method: 'POST',
+    url: '/books',
+    data: action.payload
+  });
+
+  yield put({
+    type: 'FETCH_BOOKS'
+  });
+}
+
 function* watcherSaga() {
   yield takeEvery('FETCH_BOOKS', fetchBooksSaga);
+  yield takeEvery('CREATE_BOOK', createBookSaga);
 }
 
 // Create our Saga Middleware
