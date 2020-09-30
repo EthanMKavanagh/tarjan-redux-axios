@@ -10,20 +10,23 @@ import './App.css';
 
 class App extends Component {
 
-  // TODO - GET Book List from server
   componentDidMount = () => {
+    this.getBooks();
+  }
+
+  getBooks = () => {
     axios({
       method: 'GET',
       url: '/books'
     }).then(response => {
-      console.log('response is:', response)
+      console.log('GET response', response);
 
       this.props.dispatch({
-        type: 'SET_BOOKS',
+        type: "SET_BOOKS",
         payload: response.data
       });
     }).catch(err => {
-      console.log('GET error:', err);
+      console.error('GET error', err);
     });
   }
 
@@ -32,7 +35,7 @@ class App extends Component {
         <div className="App">
           <header><h1>Books w/ Redux!</h1></header>
           <main>
-            <BookForm />
+            <BookForm getBooks={this.getBooks}/>
             <BookList />
           </main>
         </div>

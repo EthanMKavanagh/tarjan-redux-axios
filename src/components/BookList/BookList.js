@@ -23,4 +23,12 @@ const mapStateToProps = (reduxStore) => ({
   reduxStore
 })
 
+
+// Equivalent to:
+// const mapStateToProps = (reduxStore) => {
+//   return {
+//     reduxStore: reduxStore
+//   }
+// }
+
 export default connect(mapStateToProps)(BookList);

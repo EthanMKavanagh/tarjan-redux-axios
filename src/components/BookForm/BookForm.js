@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class BookForm extends Component {
 
@@ -14,6 +15,7 @@ class BookForm extends Component {
     this.setState({
       newBook: {
         ...this.state.newBook,
+        // called "computed property"
         [propertyName]: event.target.value
       }
     })
@@ -22,8 +24,18 @@ class BookForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Adding book`, this.state.newBook);
-    // TODO - axios request to server to add book
 
+    axios({
+      method: 'POST',
+      url: '/books',
+      data: this.state.newBook
+    }).then(response => {
+      console.log('POST /books', response);
+
+      this.props.getBooks();
+    }).catch(err => {
+      console.error('POST failed', err);
+    });
   }
 
   render() {
