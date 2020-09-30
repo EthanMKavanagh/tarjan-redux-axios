@@ -22,10 +22,18 @@ const bookList = (state = [], action) => {
 
 function* fetchBooksSaga(action) {
   console.log('hit fetchBooksSaga with', action);
-  let response = yield axios({
-    method: 'GET',
-    url: '/books'
-  });
+
+  // Error handling in sagas
+  let response;
+  try {
+    response = yield axios({
+      method: 'GET',
+      url: '/books'
+    });
+  }
+  catch(err) {
+    alert('so broken, so sad...');
+  }
 
   console.log('Got some books', response.data);
   yield put({
