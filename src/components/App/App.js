@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {connect} from 'react-redux';
 
 import BookList from '../BookList/BookList';
@@ -15,18 +14,8 @@ class App extends Component {
   }
 
   getBooks = () => {
-    axios({
-      method: 'GET',
-      url: '/books'
-    }).then(response => {
-      console.log('GET response', response);
-
-      this.props.dispatch({
-        type: "SET_BOOKS",
-        payload: response.data
-      });
-    }).catch(err => {
-      console.error('GET error', err);
+    this.props.dispatch({
+      type: 'FETCH_BOOKS'
     });
   }
 
